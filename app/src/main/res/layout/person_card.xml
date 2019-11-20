@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="person"
+            type="com.example.birthdayapp.database.Person" />
+
+        <variable
+            name="clickListener"
+            type="com.example.birthday_notifyer.peopleshow.PersonBirthdayListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:onClick="@{() -> clickListener.onClick(person)}">
+
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/person_photo"
+                tools:srcCompat="@tools:sample/avatars[4]" />
+
+            <TextView
+                android:id="@+id/name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/person_text_margin"
+                android:padding="@dimen/person_text_padding"
+                android:text="@{person}" />
+
+            <TextView
+                android:id="@+id/birth_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/person_text_margin"
+                android:padding="@dimen/person_text_padding"
+                android:text="@{person}"
+                tools:layout_editor_absoluteX="94dp"
+                tools:layout_editor_absoluteY="37dp" />
+
+            <TextView
+                android:id="@+id/phone_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/person_text_margin"
+                android:padding="@dimen/person_text_padding"
+                android:text="@{person}"
+                tools:layout_editor_absoluteX="94dp"
+                tools:layout_editor_absoluteY="58dp" />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
